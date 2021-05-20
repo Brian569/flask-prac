@@ -1,15 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{title}} </title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <h2>Welcome to Flask app Tutorial!!</h2>
 
-    <p>Hello, {{user.username}}</p>
-</body>
-</html>
+{% block content %}
+<div class="container-fluid">
+    <div class="">
+        Microblog:
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+    </div>
+    <div class="container">
+
+        <h2>Welcome to Flask app Tutorial!!</h2>
+    
+        <h4>Hello, <b><i>{{user.username}}</i></b></h4>
+    
+        
+        {% for post in posts %}
+        <p>
+            {{post.author.username}} says: <b> {{post.body}} </b>
+        </p>
+            
+        {% endfor %}
+    </div>
+</div>
+    
+{% endblock content %}
+    
